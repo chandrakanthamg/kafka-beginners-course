@@ -27,3 +27,4 @@ kafka-topics --bootstrap-server localhost:9092 --list
 https://www.conduktor.io/kafka/how-to-install-apache-kafka-on-windows/#Disable-IPv6-on-WSL2-2
 
 
+Wikimedia Change stream: https://stream.wikimedia.org/v2/stream/recentchange
