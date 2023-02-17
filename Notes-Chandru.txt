@@ -1,0 +1,29 @@
+https://www.conduktor.io/kafka/how-to-install-apache-kafka-on-windows/#How-to-install-Kafka-with-Zookeeper-on-Windows-1
+
+
+Download install amazon correcto linux jdk-11 on wsl ubuntu
+============================================================
+wget -O- https://apt.corretto.aws/corretto.key | sudo apt-key add - 
+sudo add-apt-repository 'deb https://apt.corretto.aws stable main'
+sudo apt-get update; sudo apt-get install -y java-11-amazon-corretto-jdk
+
+Download and install kafka
+============================
+https://downloads.apache.org/kafka/3.4.0/kafka_2.13-3.4.0.tgz
+tar xzf kafka_2.13-3.4.0.tgz
+mv kafka_2.13-3.4.0 ~
+PATH="$PATH:/home/chandru/kafka_2.13-3.4.0/bin"
+
+Run zookeeper and kafka broker
+===============================
+~/kafka_2.13-3.4.0/bin/zookeeper-server-start.sh ~/kafka_2.13-3.4.0/config/zookeeper.properties
+~/kafka_2.13-3.4.0/bin/kafka-server-start.sh ~/kafka_2.13-3.4.0/config/server.properties
+
+Accessing kafka from windows utility (solution for ipv6 issue)
+sudo sysctl -w net.ipv6.conf.all.disable_ipv6=1
+sudo sysctl -w net.ipv6.conf.default.disable_ipv6=1
+
+kafka-topics --bootstrap-server localhost:9092 --list
+https://www.conduktor.io/kafka/how-to-install-apache-kafka-on-windows/#Disable-IPv6-on-WSL2-2
+
+
